@@ -153,6 +153,9 @@ def detect(cfg,opt):
                 h,w,_=img_det.shape
                 vid_writer = cv2.VideoWriter(save_path, cv2.VideoWriter_fourcc(*fourcc), fps, (w, h))
             vid_writer.write(img_det)
+            cv2.imshow("YOLOP Live", img_det)
+                if cv2.waitKey(1) & 0xFF == ord('q'):
+                    break
         
         else:
             cv2.imshow('image', img_det)
