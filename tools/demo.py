@@ -15,7 +15,7 @@ import torch.backends.cudnn as cudnn
 from numpy import random
 import scipy.special
 import numpy as np
-import torchvision.transforms as transforms
+import torchvision.transforms as transforms # type: ignore
 import PIL.Image as image
 
 from lib.config import cfg
@@ -51,7 +51,9 @@ def detect(cfg,opt):
 
     # Load model
     model = get_net(cfg)
-    checkpoint = torch.load(opt.weights, map_location= device)
+    weights_path = opt.weights[0] if isinstance(opt.weights, list) else opt.weights
+    checkpoint = torch.load(weights_path, map_location=device, weights_only=False)
+        
     model.load_state_dict(checkpoint['state_dict'])
     model = model.to(device)
     if half:
