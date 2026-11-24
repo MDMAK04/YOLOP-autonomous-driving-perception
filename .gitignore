@@ -1,0 +1,29 @@
+.DS_Store
+__pycache__/
+.idea/
+.tmp/
+.vscode/
+bdd/
+runs/
+inference/
+*.pth
+*.pt
+*.tar
+*.tar.gz
+
+
+# Environnements et caches Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+
+# Sorties d'entraînement et archives
+runs/
+wandb/
+*.zip
+*.tar.gz
+.DS_Store
+Thumbs.db
